@@ -1,4 +1,4 @@
-package com.example.bank;
+package com.example.bank.servlet;
 
 import java.io.*;
 import jakarta.servlet.http.*;
