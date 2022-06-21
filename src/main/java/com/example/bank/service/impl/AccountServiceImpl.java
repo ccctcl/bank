@@ -12,11 +12,6 @@ public class AccountServiceImpl implements AccountService {
 
     private AccountDao accountDao;
 
-//    private TransactionManager transactionManager;
-//
-//    public void setTransactionManager(TransactionManager transactionManager) {
-//        this.transactionManager = transactionManager;
-//    }
 
     public void setAccountDao(AccountDao accountDao) {
 
@@ -64,19 +59,7 @@ public class AccountServiceImpl implements AccountService {
             target.setMoney(target.getMoney()+money);
             accountDao.updateAccount(source);
             accountDao.updateAccount(target);
-//            transactionManager.commitTransaction();
         }
-//        try{
-//            transactionManager.beginTransaction();
-//
-//        }catch (Exception e){
-//            transactionManager.rollBack();
-//            System.out.println("回滚");
-//            e.printStackTrace();
-//
-//        }finally {
-//            transactionManager.release();
-//        }
     }
 
 

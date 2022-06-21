@@ -10,8 +10,6 @@ public interface AccountDao {
 
     Account findAccountById(Integer Id);
 
-//    Account findAccountByName(String name);
-
     Account findAccountByNameId(Integer nameId);
 
     void saveAccount(Account account);
