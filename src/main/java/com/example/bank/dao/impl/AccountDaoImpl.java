@@ -44,16 +44,6 @@ public class AccountDaoImpl implements AccountDao {
         }
     }
 
-//    @Override
-//    public Account findAccountByName(String name) {
-//        try {
-//            return runner.query("select * from bank where name =?",new BeanHandler<Account>(Account.class),name);
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//            throw new RuntimeException(e);
-//        }
-//    }
-
     @Override
     public Account findAccountByNameId(Integer nameId) {
         try {
@@ -64,7 +54,6 @@ public class AccountDaoImpl implements AccountDao {
         }
 
     }
-
 
     @Override
     public void saveAccount(Account account) {
