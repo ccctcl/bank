@@ -79,10 +79,10 @@
             border: 1px solid #000000;
         }
         .biaoge table tr th{
-            width: 200px;
+            width: 250px;
             border: 1px solid #000000;
         }.biaoge table tr td{
-             width: 200px;
+             width: 250px;
              border: 1px solid #000000;
              text-align: center;
          }
@@ -116,13 +116,13 @@
             text-align: center;
             border: 1px solid #d6d6d6;
             border-bottom: 1px solid #808080;
-            background: url(bg.png);
+            background-color: rgba(255, 255, 255, 0.479);
             font-weight: bold;
         }
         .add_con{
             width: 330px;
             height: 150px;
-            background: url(bg.png);
+            background-color: rgba(255, 255, 255, 0.479);
         }
         .add_con table{
             padding-left: 50px;
@@ -138,7 +138,7 @@
             height: 180px;
             float: left;
             margin: 0px 15px;
-            background: url(bg.png);
+            background-color: rgba(255, 255, 255, 0.479);
         }
         .select_title{
             line-height: 30px;
@@ -158,7 +158,7 @@
             padding: 0px;
             width: 310px;
             height: 180px;
-            background: url(bg.png);
+            background-color: rgba(255, 255, 255, 0.479);
             float: right;
             overflow: hidden;
         }
@@ -169,7 +169,7 @@
             text-align: center;
             border: 1px solid #d6d6d6;
             border-bottom: 1px solid #808080;
-            background: url(bg.png);
+            background-color: rgba(255, 255, 255, 0.479);
             font-weight: bold;
         }
         .update_con{
@@ -197,6 +197,12 @@
             text-align: center;
             color: #909090;
         }
+        .line2{
+            width: 1000px;
+            height: 70px;
+            background-color: rgba(255, 255, 255, 0.479);
+        }
+
     </style>
 
 
@@ -214,9 +220,9 @@
     <div class="nav">
         <div class="nav_con"><ul>
             <li class="cur"><a href="ViewServlet"><span>首 页</span></a></li>
-            <li><a href="#"><span>水库管理</span></a></li>
-            <li><a href="#"><span>水库分析</span></a></li>
-            <li><a href="#"><span>环境监测</span></a></li>
+            <li><a href="#"><span>投资理财</span></a></li>
+            <li><a href="#"><span>相关资讯</span></a></li>
+            <li><a href="#"><span>账户明细</span></a></li>
         </ul></div>
     </div>
 </div>
@@ -241,14 +247,10 @@
                         money=account.getMoney();
             %>
             <tr>
-                <td><%=id%>
-                </td>
-                <td><%=name%>
-                </td>
-                <td><%=nameId%>
-                </td>
-                <td><%=money%>
-                </td>
+                <td><%=id%> </td>
+                <td><%=name%></td>
+                <td><%=nameId%></td>
+                <td><%=money%></td>
             </tr>
             <%}%>
 
@@ -348,6 +350,38 @@
 
         </div>
 
+    </div>
+
+    <div class="line2">
+        <div class="trans">
+            <div class="select_title">转账</div>
+            <div class="select_con">
+                <form method="post" name="operate" action="OperationServlet?action=trans" >
+                    <div>
+                        <select name="choice1">
+                            <option value="id">序号:</option>
+                            <option value="nameId">ID:</option>
+                        </select>
+                        <input type="text" name="source">
+
+                    </div>
+
+                    <div>
+                        <select name="choice2">
+                            <option value="id">序号:</option>
+                            <option value="nameId">ID:</option>
+                        </select>
+                        <input type="text" name="target">
+                    </div>
+
+                    <div>
+                        <input type="text" name="money">
+                    </div>
+
+                    <input placeholder="转账" type="submit" value="转账" id="trans">
+                </form>
+            </div>
+        </div>
     </div>
 
 </div>
