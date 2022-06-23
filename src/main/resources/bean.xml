@@ -24,7 +24,6 @@
 
     <bean id="accountService" class="com.example.bank.service.impl.AccountServiceImpl">
         <property name="accountDao" ref="accountDao"></property>
-<!--        <property name="transactionManager" ref="transaction"></property>-->
     </bean>
 
     <bean id="connectionUtils" class="com.example.bank.utils.ConnectionUtils">

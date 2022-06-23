@@ -2,6 +2,7 @@ package com.example.bank.dao.impl;
 
 import com.example.bank.dao.AccountDao;
 import com.example.bank.domain.Account;
+import com.example.bank.domain.User;
 import com.example.bank.utils.ConnectionUtils;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
@@ -38,6 +39,16 @@ public class AccountDaoImpl implements AccountDao {
     public Account findAccountById(Integer Id) {
         try {
             return runner.query(connectionUtils.getThreadConnection(),"select * from bank where Id =?",new BeanHandler<Account>(Account.class),Id);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public User findAccountByName(String name) {
+        try {
+            return runner.query(connectionUtils.getThreadConnection(),"select * from banklogin where name =?",new BeanHandler<User>(User.class),name);
         } catch (SQLException e) {
             e.printStackTrace();
             throw new RuntimeException(e);

@@ -1,6 +1,7 @@
 package test;
 
 import com.example.bank.domain.Account;
+import com.example.bank.domain.User;
 import com.example.bank.service.AccountService;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
@@ -74,6 +75,14 @@ public class AccountTest {
         AccountService accountService = applicationContext.getBean("proxyAccountService",AccountService.class);
 
 
+    }
+
+    @Test
+    public void testFindByName(){
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("bean.xml");
+        AccountService accountService = applicationContext.getBean("accountService",AccountService.class);
+        User user = accountService.findAccountByName("root");
+        System.out.println(user.getPassword());
     }
 
 

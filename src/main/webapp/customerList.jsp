@@ -239,13 +239,13 @@
 </head>
 <body>
 
-<%
-    List<Account> list = (List<Account>) request.getAttribute("list");
-%>
+<%--<%--%>
+<%--    List<Account> list = (List<Account>)  request.getAttribute("list");--%>
+<%--%>--%>
 <div class="nav">
     <div class="nav">
         <div class="nav_con"><ul>
-            <li class="cur"><a href="ViewServlet"><span>首 页</span></a></li>
+            <li class="cur"><a href="#"><span>首 页</span></a></li>
             <li><a href="#"><span>投资理财</span></a></li>
             <li><a href="#"><span>相关资讯</span></a></li>
             <li><a href="#"><span>账户明细</span></a></li>
@@ -262,23 +262,23 @@
                 <th>ID</th>
                 <th>余额</th>
             </tr>
-            <%
-                String name;
-                int id,nameId;
-                float money;
-                for (Account account:list){
-                        id=account.getId();
-                        name =account.getName();
-                        nameId=account.getNameId();
-                        money=account.getMoney();
-            %>
-            <tr>
-                <td><%=id%> </td>
-                <td><%=name%></td>
-                <td><%=nameId%></td>
-                <td><%=money%></td>
-            </tr>
-            <%}%>
+<%--            <%--%>
+<%--                String name;--%>
+<%--                int id,nameId;--%>
+<%--                float money;--%>
+<%--                for (Account account:list){--%>
+<%--                        id=account.getId();--%>
+<%--                        name =account.getName();--%>
+<%--                        nameId=account.getNameId();--%>
+<%--                        money=account.getMoney();--%>
+<%--            %>--%>
+<%--            <tr>--%>
+<%--                <td><%=id%> </td>--%>
+<%--                <td><%=name%></td>--%>
+<%--                <td><%=nameId%></td>--%>
+<%--                <td><%=money%></td>--%>
+<%--            </tr>--%>
+<%--            <%}%>--%>
 
         </table>
     </div>
@@ -286,97 +286,97 @@
 
 <div class="content">
 
-    <div class="line1">
+<%--    <div class="line1">--%>
 
-        <div class="left">
+<%--        <div class="left">--%>
 
-            <div class="add">
-                <div class="add_title">增加</div>
-                <div class="add_con">
-                    <form method="post" name="operate" action="OperationServlet?action=add">
-                        <table>
-                            <tr>
-                                <th>名称</th>
-                                <td><input type="text" name="name"></td>
-                            </tr>
-                            <tr>
-                                <th>ID</th>
-                                <td><input type="text" name="nameId"></td>
-                            </tr>
-                            <tr>
-                                <th>余额</th>
-                                <td><input type="text" name="money"></td>
-                            </tr>
-                        </table>
-                        <input placeholder="添加" type="submit" value="增加" id="add">
-                    </form>
-                </div>
-            </div>
+<%--            <div class="add">--%>
+<%--                <div class="add_title">增加</div>--%>
+<%--                <div class="add_con">--%>
+<%--                    <form method="post" name="operate" action="OperationServlet?action=add">--%>
+<%--                        <table>--%>
+<%--                            <tr>--%>
+<%--                                <th>名称</th>--%>
+<%--                                <td><input type="text" name="name"></td>--%>
+<%--                            </tr>--%>
+<%--                            <tr>--%>
+<%--                                <th>ID</th>--%>
+<%--                                <td><input type="text" name="nameId"></td>--%>
+<%--                            </tr>--%>
+<%--                            <tr>--%>
+<%--                                <th>余额</th>--%>
+<%--                                <td><input type="text" name="money"></td>--%>
+<%--                            </tr>--%>
+<%--                        </table>--%>
+<%--                        <input placeholder="添加" type="submit" value="增加" id="add">--%>
+<%--                    </form>--%>
+<%--                </div>--%>
+<%--            </div>--%>
 
-        </div>
+<%--        </div>--%>
 
-        <div class="center">
-            <div class="select">
-                <div class="select_title">查询</div>
-                <div class="select_con">
-                    <form method="post" name="operate" action="OperationServlet?action=select" >
-                        <select name="choice">
-                            <option value="id">序号:</option>
-                            <option value="nameId">ID:</option>
-                        </select>
-                        <input type="text" name="input">
-                        <input placeholder="查询" type="submit" value="查询" id="select">
-                    </form>
-                </div>
-            </div>
+<%--        <div class="center">--%>
+<%--            <div class="select">--%>
+<%--                <div class="select_title">查询</div>--%>
+<%--                <div class="select_con">--%>
+<%--                    <form method="post" name="operate" action="OperationServlet?action=select" >--%>
+<%--                        <select name="choice">--%>
+<%--                            <option value="id">序号:</option>--%>
+<%--                            <option value="nameId">ID:</option>--%>
+<%--                        </select>--%>
+<%--                        <input type="text" name="input">--%>
+<%--                        <input placeholder="查询" type="submit" value="查询" id="select">--%>
+<%--                    </form>--%>
+<%--                </div>--%>
+<%--            </div>--%>
 
-            <div class="delete">
-                <div class="select_title">删除</div>
-                <div class="select_con">
-                    <form method="post" name="operate" action="OperationServlet?action=delete">
-                        <table>
-                            <tr>
-                                <th>序号</th>
-                                <td><input type="text" name="id"></td>
-                                <td><input placeholder="删除" type="submit" value="删除"></td>
-                            </tr>
-                        </table>
-                    </form>
-                </div>
-            </div>
-        </div>
+<%--            <div class="delete">--%>
+<%--                <div class="select_title">删除</div>--%>
+<%--                <div class="select_con">--%>
+<%--                    <form method="post" name="operate" action="OperationServlet?action=delete">--%>
+<%--                        <table>--%>
+<%--                            <tr>--%>
+<%--                                <th>序号</th>--%>
+<%--                                <td><input type="text" name="id"></td>--%>
+<%--                                <td><input placeholder="删除" type="submit" value="删除"></td>--%>
+<%--                            </tr>--%>
+<%--                        </table>--%>
+<%--                    </form>--%>
+<%--                </div>--%>
+<%--            </div>--%>
+<%--        </div>--%>
 
-        <div class="right">
-            <div class="update">
-                <div class="update_title">更新</div>
-                <div class="update_con">
-                    <form method="post" name="operate" action="OperationServlet?action=update">
-                        <table>
-                            <tr>
-                                <th>序号</th>
-                                <td><input type="text" name="id"></td>
-                            </tr>
-                            <tr>
-                                <th>名称</th>
-                                <td><input type="text" name="name"></td>
-                            </tr>
-                            <tr>
-                                <th>ID</th>
-                                <td><input type="text" name="nameId"></td>
-                            </tr>
-                            <tr>
-                                <th>余额</th>
-                                <td><input type="text" name="money"></td>
-                            </tr>
-                        </table>
-                        <input placeholder="更改" type="submit" value="更改" id="update">
-                    </form>
-                </div>
-            </div>
+<%--        <div class="right">--%>
+<%--            <div class="update">--%>
+<%--                <div class="update_title">更新</div>--%>
+<%--                <div class="update_con">--%>
+<%--                    <form method="post" name="operate" action="OperationServlet?action=update">--%>
+<%--                        <table>--%>
+<%--                            <tr>--%>
+<%--                                <th>序号</th>--%>
+<%--                                <td><input type="text" name="id"></td>--%>
+<%--                            </tr>--%>
+<%--                            <tr>--%>
+<%--                                <th>名称</th>--%>
+<%--                                <td><input type="text" name="name"></td>--%>
+<%--                            </tr>--%>
+<%--                            <tr>--%>
+<%--                                <th>ID</th>--%>
+<%--                                <td><input type="text" name="nameId"></td>--%>
+<%--                            </tr>--%>
+<%--                            <tr>--%>
+<%--                                <th>余额</th>--%>
+<%--                                <td><input type="text" name="money"></td>--%>
+<%--                            </tr>--%>
+<%--                        </table>--%>
+<%--                        <input placeholder="更改" type="submit" value="更改" id="update">--%>
+<%--                    </form>--%>
+<%--                </div>--%>
+<%--            </div>--%>
 
-        </div>
+<%--        </div>--%>
 
-    </div>
+<%--    </div>--%>
 
     <div class="line2">
         <div class="trans">

@@ -33,7 +33,6 @@ public class OperationServlet extends HttpServlet {
 
         switch (action){
             case "add":{
-
                 if(request.getParameter("name").isEmpty()||request.getParameter("nameId").isEmpty()){
                     goPath="failOperation.jsp";
                     errorReason="姓名或ID为空";
@@ -127,6 +126,10 @@ public class OperationServlet extends HttpServlet {
                     case "nameId":{
                         targetAccount=accountService.findAccountByNameId(Integer.valueOf(target));
                     }break;
+                }
+                if(targetAccount==null||sourceAccount==null){
+                    errorReason="无法查询到该用户";
+                    goPath="failOperation.jsp";break;
                 }
                 if (sourceAccount.getMoney()>=money){
                     accountService.transfer(sourceAccount,targetAccount,money);

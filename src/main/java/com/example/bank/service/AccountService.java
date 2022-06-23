@@ -1,6 +1,7 @@
 package com.example.bank.service;
 
 import com.example.bank.domain.Account;
+import com.example.bank.domain.User;
 
 import java.util.List;
 
@@ -9,6 +10,8 @@ public interface AccountService {
     List<Account> findAllAccount();
 
     Account findAccountById(Integer Id);
+
+    User findAccountByName(String name);
 
     Account findAccountByNameId(Integer nameId);
 
