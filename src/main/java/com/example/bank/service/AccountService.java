@@ -18,6 +18,6 @@ public interface AccountService {
 
     void deleteAccount(Integer accountId);
 
-    void transfer(Integer sourceNameId,Integer targetNameId,Float money);
+    void transfer(Account source,Account target,Float money);
 
 }

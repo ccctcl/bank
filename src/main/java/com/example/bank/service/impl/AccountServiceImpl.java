@@ -51,15 +51,11 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public void transfer(Integer sourceNameId, Integer targetNameId, Float money) {
-        Account source=accountDao.findAccountByNameId(sourceNameId);
-        Account target= accountDao.findAccountByNameId(targetNameId);
-        if (source.getMoney()>=money){
-            source.setMoney(source.getMoney()-money);
-            target.setMoney(target.getMoney()+money);
-            accountDao.updateAccount(source);
-            accountDao.updateAccount(target);
-        }
+    public void transfer(Account source,Account target, Float money) {
+        source.setMoney(source.getMoney()-money);
+        target.setMoney(target.getMoney()+money);
+        accountDao.updateAccount(source);
+        accountDao.updateAccount(target);
     }
 
 

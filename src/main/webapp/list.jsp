@@ -202,6 +202,32 @@
             height: 70px;
             background-color: rgba(255, 255, 255, 0.479);
         }
+        .trans_title{
+            width: 1000px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            border: 1px solid #d6d6d6;
+            border-bottom: 1px solid #808080;
+            background-color: rgba(255, 255, 255, 0.479);
+            font-weight: bold;
+        }
+        .trans_con{
+            display: inline-block;
+            margin: 5px 10px;
+        }
+        .source{
+            float: left;
+            margin: 0px 10px;
+        }
+        .target{
+            float: left;
+            margin: 0px 35px;
+        }
+        .money{
+            float: left;
+            margin: 0px 30px;
+        }
 
     </style>
 
@@ -354,10 +380,11 @@
 
     <div class="line2">
         <div class="trans">
-            <div class="select_title">转账</div>
-            <div class="select_con">
+            <div class="trans_title">转账</div>
+            <div class="trans_con">
                 <form method="post" name="operate" action="OperationServlet?action=trans" >
-                    <div>
+                    <div class="source">
+                        <span>发起人</span>
                         <select name="choice1">
                             <option value="id">序号:</option>
                             <option value="nameId">ID:</option>
@@ -366,7 +393,8 @@
 
                     </div>
 
-                    <div>
+                    <div class="target">
+                        <span>接收人</span>
                         <select name="choice2">
                             <option value="id">序号:</option>
                             <option value="nameId">ID:</option>
@@ -374,7 +402,8 @@
                         <input type="text" name="target">
                     </div>
 
-                    <div>
+                    <div class="money">
+                        <span>金额</span>
                         <input type="text" name="money">
                     </div>
 

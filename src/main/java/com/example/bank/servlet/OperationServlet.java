@@ -11,6 +11,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.SocketHandler;
 
 @WebServlet(name = "OperationServlet", value = "/OperationServlet")
 public class OperationServlet extends HttpServlet {
@@ -89,11 +90,52 @@ public class OperationServlet extends HttpServlet {
                     }break;
                 }
                 goPath="list.jsp";
-            }
+            }break;
 
-//            case "trans":{
-//
-//            }break;
+            case "trans":{
+                Integer source,target;
+                float money ;
+                String choice1=request.getParameter("choice1");
+                String choice2=request.getParameter("choice2");
+                Account sourceAccount = new Account();
+                Account targetAccount = new Account();
+                if(request.getParameter("money").isEmpty()){
+                    money=0;
+                }else {
+                    money = Float.parseFloat(request.getParameter("money"));
+                }
+                if(request.getParameter("source").isEmpty()||request.getParameter("target").isEmpty()){
+                    errorReason="输入框为空";
+                    goPath="failOperation.jsp";break;
+                }else{
+                     source = Integer.valueOf(request.getParameter("source"));
+                     target = Integer.valueOf(request.getParameter("target"));
+                }
+                switch (choice1){
+                    case "id":{
+                        sourceAccount=accountService.findAccountById(Integer.valueOf(source));
+                    }break;
+                    case "nameId":{
+                        sourceAccount =accountService.findAccountByNameId(Integer.valueOf(source));
+                    }break;
+                }
+                switch (choice2){
+                    case "id":{
+                        targetAccount=accountService.findAccountById(Integer.valueOf(target));
+                    }break;
+
+                    case "nameId":{
+                        targetAccount=accountService.findAccountByNameId(Integer.valueOf(target));
+                    }break;
+                }
+                if (sourceAccount.getMoney()>=money){
+                    accountService.transfer(sourceAccount,targetAccount,money);
+                    goPath="ViewServlet";
+                }else{
+                    errorReason="发起方账户余额不足";
+                    goPath="failOperation.jsp";
+                }
+            }break;
         }
         request.setAttribute("list",list);
         request.setAttribute("errorReason",errorReason);

@@ -73,7 +73,7 @@ public class AccountTest {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("bean.xml");
         AccountService accountService = applicationContext.getBean("proxyAccountService",AccountService.class);
 
-        accountService.transfer(19,20,10.01f);
+
     }
 
 
