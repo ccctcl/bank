@@ -80,12 +80,19 @@ public class OperationServlet extends HttpServlet {
                 switch (choice){
                     case "id":{
                         account=accountService.findAccountById(Integer.valueOf(input));
+                        if(account==null){
+                            break;
+                        }else{
                             list.add(account);
+                        }
                     }break;
-
                     case "nameId":{
                         account=accountService.findAccountByNameId(Integer.valueOf(input));
-                        list.add(account);
+                        if(account==null){
+                            break;
+                        }else{
+                            list.add(account);
+                        }
                     }break;
                 }
                 goPath="list.jsp";
@@ -135,7 +142,7 @@ public class OperationServlet extends HttpServlet {
                     accountService.transfer(sourceAccount,targetAccount,money);
                     goPath="ViewServlet";
                 }else{
-                    errorReason="发起方账户余额不足";
+                    errorReason="转账方账户余额不足";
                     goPath="failOperation.jsp";
                 }
             }break;

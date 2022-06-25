@@ -61,7 +61,7 @@
 <script language="javascript" type="text/javascript">
     var time = 5;
     function Redirect() {
-        window.location = "ViewServlet";
+        window.location = "login.jsp";
     }
     var i = 0;
     function Replay() {

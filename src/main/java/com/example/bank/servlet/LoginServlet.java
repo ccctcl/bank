@@ -31,22 +31,28 @@ public class LoginServlet extends HttpServlet {
             errorReason="账号或密码为空";
         }else{
             user=accountService.findAccountByName(request.getParameter("username"));
-            if(user.getPassword().equals(request.getParameter("password"))){
-                switch(user.getIdentity()){
-                    case "root":{
-                        goPath="successPage.jsp";
-                        request.setAttribute("user",user);
-                    }break;
-                    case "common":{
-                        goPath="customerSuccessPage.jsp";
-                        request.setAttribute("user",user);
-                    }break;
-                }
-            }
-            else{
-                goPath="failLogin.jsp";
-                errorReason="账号或密码不正确";
-            }
+             if(user==null){
+                 goPath="failLogin.jsp";
+                 errorReason="账号或密码不正确";
+             }else{
+                 if(user.getPassword().equals(request.getParameter("password"))){
+                     switch(user.getIdentity()){
+                         case "root":{
+                             goPath="successPage.jsp";
+                             request.setAttribute("user",user);
+                         }break;
+                         case "common":{
+                             goPath="customerSuccessPage.jsp";
+                             request.setAttribute("user",user);
+                         }break;
+                     }
+                 }
+                 else{
+                     goPath="failLogin.jsp";
+                     errorReason="账号或密码不正确";
+                 }
+             }
+
         }
 
         request.setAttribute("errorReason",errorReason);
